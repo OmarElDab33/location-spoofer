@@ -27,11 +27,11 @@ workflows:
       - name: Set up code signing
         script: |
           xcode-project use-profiles
-          
+
       - name: Build signed IPA
         script: |
           set -o pipefail
-      
+
           xcodebuild \
             -project "$CM_BUILD_DIR/PaopaoLocationSpoofer.xcodeproj" \
             -scheme "PaopaoLocationSpoofer" \
@@ -42,7 +42,15 @@ workflows:
             CODE_SIGN_STYLE=Manual \
             archive \
             2>&1 | tee "$CM_BUILD_DIR/xcode-archive.log"
-      
-      artifacts:
-        - "**/*.ipa"
-        - "xcode-archive.log"
+
+      - name: Export IPA
+        script: |
+          xcode-project build-ipa \
+            --project "$CM_BUILD_DIR/PaopaoLocationSpoofer.xcodeproj" \
+            --scheme "PaopaoLocationSpoofer" \
+            --verbose
+
+    artifacts:
+      - "build/ios/ipa/*.ipa"
+      - "xcode-archive.log"
+      - "/tmp/xcodebuild_logs/*.log"
