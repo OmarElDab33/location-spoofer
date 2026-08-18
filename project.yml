@@ -24,7 +24,7 @@ targets:
       - path: Resources
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.paopaolabs.location-spoofer
+        PRODUCT_BUNDLE_IDENTIFIER: tg.tgqq1504.tool9
         PRODUCT_NAME: PaopaoLocationSpoofer
         INFOPLIST_FILE: Resources/Info.plist
         CODE_SIGN_ENTITLEMENTS: Resources/PaopaoLocationSpoofer.entitlements
