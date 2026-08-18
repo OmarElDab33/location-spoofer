@@ -7,8 +7,8 @@ workflows:
     environment:
       xcode: latest
       ios_signing:
-        distribution_type: development
-        bundle_identifier: com.paopaolabs.location-spoofer
+        distribution_type: ad_hoc
+        bundle_identifier: tg.tgqq1504.tool9
 
     scripts:
       - name: Install XcodeGen
